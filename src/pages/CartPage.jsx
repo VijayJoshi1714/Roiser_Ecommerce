@@ -2,16 +2,18 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaShoppingCart, FaTruck, FaCreditCard, FaHeadset } from 'react-icons/fa';
-import { WOW } from 'wowjs';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CartPage = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
 
     useEffect(() => {
-        new WOW.WOW({
-            live: false
-        }).init();
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
     }, []);
 
     const handleQuantityChange = (id, quantity) => {
@@ -45,7 +47,7 @@ const CartPage = () => {
     return (
         <div className="min-h-screen bg-white animate__animated animate__fadeIn">
             {/* Breadcrumb */}
-            <div className="bg-[#FDF1F1] wow animate__animated animate__fadeIn">
+            <div className="bg-[#FDF1F1]" data-aos="fade-in">
                 <div className="container mx-auto px-4 lg:px-0 max-w-[1170px]">
                     <div className="py-16">
                         <h1 className="text-4xl font-bold mb-4">Cart Page</h1>
@@ -60,7 +62,7 @@ const CartPage = () => {
 
             <div className="container mx-auto px-4 lg:px-0 max-w-[1170px] py-8">
                 {/* Free Shipping Progress */}
-                <div className="bg-[#F6F6F7] rounded-lg p-6 mb-8 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div className="bg-[#F6F6F7] rounded-lg p-6 mb-8" data-aos="fade-up" data-aos-delay="200">
                     <p className="text-[14px] text-[#141414] mb-4">
                         {remaining > 0
                             ? `Add $${remaining.toFixed(2)} to cart and get free shipping`
@@ -77,7 +79,7 @@ const CartPage = () => {
 
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Cart Items Section */}
-                    <div className="flex-grow wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                    <div className="flex-grow" data-aos="fade-up" data-aos-delay="300">
                         <div className="bg-[#F6F6F7] rounded-lg p-6">
                             {cartItems.length === 0 ? (
                                 <div className="text-center py-8">
@@ -223,7 +225,7 @@ const CartPage = () => {
                     </div>
 
                     {/* Cart Totals Section */}
-                    <div className="w-full lg:w-[464px] wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                    <div className="w-full lg:w-[464px]" data-aos="fade-up" data-aos-delay="400">
                         <div className="bg-[#F6F6F7] rounded-lg p-8">
                             <h2 className="text-[18px] font-bold text-[#141414] mb-8">Cart Totals</h2>
 
