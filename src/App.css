@@ -1,0 +1,42 @@
+/* Light mode (default) variables */
+:root {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8f9fa;
+    --primary-text: #333333;
+    --secondary-text: #6c757d;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --border-color: #e5e7eb;
+}
+
+/* Dark mode variables */
+[data-theme='dark'] {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2d2d2d;
+    --primary-text: #ffffff;
+    --secondary-text: #d1d5db;
+    --card-bg: #2d2d2d;
+    --header-bg: #1a1a1a;
+    --border-color: #374151;
+}
+
+/* Apply variables to elements */
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.header {
+    background-color: var(--header-bg);
+}
+
+/* Add smooth transitions */
+* {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
